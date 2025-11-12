@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Feedback Form</title>
     <style>
-      
         body {
             font-family: 'Poppins', sans-serif;
-            background: url('https://gimgs2.nohat.cc/thumb/f/640/restaurant-menu-background--4558535413202944.jpg');
-            
+            background: url('https://gimgs2.nohat.cc/thumb/f/640/restaurant-menu-background--4558535413202944.jpg') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -17,7 +16,6 @@
             margin: 0;
         }
 
-     
         .feedback-box {
             background: rgba(255, 255, 255, 0.9);
             padding: 30px;
@@ -52,25 +50,6 @@
             resize: none;
         }
 
-      
-        .rating {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-            margin: 10px 0;
-        }
-
-        .star {
-            width: 35px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .star:hover {
-            transform: scale(1.2);
-        }
-
-       
         button {
             width: 100%;
             background-color: #e67e22;
@@ -88,139 +67,64 @@
         button:hover {
             background-color: #d35400;
         }
-
-      
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .popup-content {
-            background: #fff;
-            padding: 25px 40px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .popup-content h3 {
-            color: #27ae60;
-            margin-bottom: 10px;
-        }
-
-        .popup-content button {
-            background: #27ae60;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .popup-content button:hover {
-            background: #219150;
-        }
     </style>
 </head>
 <body>
 
     <div class="feedback-box">
         <h2>🍴 Restaurant Feedback Form</h2>
-        <form id="feedbackForm">
+        
+        <form action="viewfeedbackservlet" method="post">
             <label for="name">Full Name:</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
-            <label for="food">choose food item</label>
-            <select id="food" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="foodItem">Choose food item:</label>
+            <select id="foodItem" name="foodItem" required>
                 <option value="">-- Select an option --</option>
-                <option>Straters</option>
-                <option>mocktails</option>
-                <option>Biryani</option>
-                <option>Desert</option>
-                <option>Breakfast
-                </option>
-                
+                <option value="Starters">Starters</option>
+                <option value="Mocktails">Mocktails</option>
+                <option value="Biryani">Biryani</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Breakfast">Breakfast</option>
             </select>
 
-            <label for="food">How was the food quality?</label>
-            <select id="food" required>
+            <label for="foodQuality">How was the food quality?</label>
+            <select id="foodQuality" name="foodQuality" required>
                 <option value="">-- Select an option --</option>
-                <option>Excellent</option>
-                <option>Good</option>
-                <option>Average</option>
-                <option>Poor</option>
+                <option value="5">Excellent</option>
+                <option value="4">Good</option>
+                <option value="3">Average</option>
+                <option value="2">Poor</option>
             </select>
 
-            <label for="service">How was the service?</label>
-            <select id="service" required>
+            <label for="serviceRating">How was the service?</label>
+            <select id="serviceRating" name="serviceRating" required>
                 <option value="">-- Select an option --</option>
-                <option>Excellent</option>
-                <option>Good</option>
-                <option>Average</option>
-                <option>Poor</option>
+                <option value="5">Excellent</option>
+                <option value="4">Good</option>
+                <option value="3">Average</option>
+                <option value="2">Poor</option>
             </select>
 
-            <label>Rate your overall experience:</label>
-            <div class="rating" id="rating">
-                <img src="https://cdn-icons-png.flaticon.com/512/616/616489.png" class="star" alt="star">
-                <img src="https://cdn-icons-png.flaticon.com/512/616/616489.png" class="star" alt="star">
-                <img src="https://cdn-icons-png.flaticon.com/512/616/616489.png" class="star" alt="star">
-                <img src="https://cdn-icons-png.flaticon.com/512/616/616489.png" class="star" alt="star">
-                <img src="https://cdn-icons-png.flaticon.com/512/616/616489.png" class="star" alt="star">
-            </div>
+            <label for="overallExperience">Rate your overall experience (1–5):</label>
+            <select id="overallExperience" name="overallExperience" required>
+                <option value="">-- Select an option --</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
 
             <label for="comments">Any suggestions?</label>
-            <textarea id="comments" rows="3" placeholder="Your feedback..."></textarea>
+            <textarea id="comments" name="comments" rows="3" placeholder="Your feedback..."></textarea>
 
             <button type="submit">Submit Feedback</button>
         </form>
     </div>
 
-   
-    <div class="popup" id="popup">
-        <div class="popup-content">
-            <h3>Thank You! 😊</h3>
-            <p>Your feedback has been submitted successfully.</p>
-            <button id="closePopup">OK</button>
-        </div>
-    </div>
-
-    <script>
-     
-        const stars = document.querySelectorAll(".star");
-        stars.forEach((star, index) => {
-            star.addEventListener("click", () => {
-                stars.forEach((s, i) => {
-                    s.src = i <= index 
-                        ? "https://cdn-icons-png.flaticon.com/512/1828/1828884.png" 
-                        : "https://cdn-icons-png.flaticon.com/512/616/616489.png"
-                });
-            });
-        });
-
-        
-        const form = document.getElementById("feedbackForm");
-        const popup = document.getElementById("popup");
-        const closePopup = document.getElementById("closePopup");
-
-        form.addEventListener("submit", (e) => {
-            e.preventDefault(); 
-            popup.style.display = "flex";
-        });
-
-        closePopup.addEventListener("click", () => {
-            popup.style.display = "none";
-            form.reset();
-            stars.forEach(s => s.src = "https://cdn-icons-png.flaticon.com/512/616/616489.png");
-        });
-    </script>
 </body>
-
 </html>

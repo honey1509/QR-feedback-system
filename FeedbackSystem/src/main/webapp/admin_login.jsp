@@ -4,11 +4,11 @@
 <head>
     <title>Admin Login</title>
 
-    <!-- BOOTSTRAP -->
+ 
     <link rel="stylesheet" 
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <!-- GOOGLE FONT -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" 
           rel="stylesheet">
 
@@ -24,7 +24,7 @@
             backdrop-filter: blur(3px);
         }
 
-        /* Glassmorphism Card */
+       
         .login-card {
             background: rgba(255, 255, 255, 0.12);
             border-radius: 15px;
@@ -54,7 +54,7 @@
         <div class="login-card text-white">
             <h3 class="text-center mb-4 title-text">Restaurant Admin Login</h3>
 
-            <form action="AdminLoginServlet" method="post">
+            <form action="adminloginservlet" method="post">
 
                 <div class="mb-3">
                     <label class="form-label">Username</label>

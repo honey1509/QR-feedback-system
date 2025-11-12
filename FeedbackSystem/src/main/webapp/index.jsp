@@ -29,21 +29,21 @@
         font-weight: 500;
     }
 
-    /* 🔥 Make all cards equal size */
+    
     .food-card {
-        height: 360px;                  /* Same height for all cards */
-        display: flex;
+        height: 360px;
+           display: flex;
         flex-direction: column;
     }
 
     .food-card img {
         height: 180px;
         width: 100%;
-        object-fit: cover;               /* Crop image properly */
+        object-fit: cover;             
     }
 
     .food-card-body {
-        flex-grow: 1;                    /* Push text to fill space */
+        flex-grow: 1;                    
     }
 
     h2 {

@@ -35,10 +35,10 @@
                 
                 <div class="mb-3">
     <label class="form-label">choose the food item?</label>
-    <select name="option" class="form-control" required>
+    <select name="fooditem" class="form-control" required>
         <option value="" disabled selected>Select fooditem</option>
         <option>Strater</option>
-        <option>Biryani<option>
+        <option>Biryani</option>
         <option>Mocktails</option>
         <option>Deserts</option>
         <option>Breakfast</option>
@@ -49,7 +49,7 @@
 
                 <div class="mb-3">
     <label class="form-label">How was the food quality?</label>
-    <select name="option" class="form-control" required>
+    <select name="foodquality" class="form-control" required>
         <option value="" disabled selected>Select Rating</option>
         <option>1</option>
         <option>2</option>
@@ -60,7 +60,7 @@
           </div>
                 <div class="mb-3">
     <label class="form-label">How was service?</label>
-    <select name="option" class="form-control" required>
+    <select name="servicerating" class="form-control" required>
         <option value="" disabled selected>Select Rating</option>
         <option>1</option>
         <option>2</option>
@@ -71,14 +71,14 @@
           </div>
                 <div class="mb-3">
                     <label class="form-label">Rate your overall experience</label>
-                     <select name="option" class="form-control" required>
+                     <select name="overall" class="form-control" required>
         <option value="" disabled selected>Select Rating</option>
         <option>1</option>
         <option>2</option>
         <option>3</option>
         <option>4</option>
         <option>5</option>
-                    
+                    </select>
                 </div>
                
 

@@ -42,13 +42,13 @@
     }
 
     .food-card img {
-        height: 150px;                   /* SAME IMAGE HEIGHT */
+        height: 150px;                   
         object-fit: cover;
         width: 100%;
     }
 
     .card-body {
-        flex: 1;                          /* Fills remaining space */
+        flex: 1;                          
     }
 
     .card-title {

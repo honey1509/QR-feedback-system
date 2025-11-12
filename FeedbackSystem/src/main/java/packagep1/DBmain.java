@@ -8,14 +8,15 @@ public class DBmain {
 		Connection con = DBConnection.getConnection();
 
         if (con != null) {
-            System.out.println("✔ Database Connection Successful!");
+            System.out.println(" Database Connection Successful!");
         } else {
-            System.out.println("✘ Failed to Connect to Database!");
+            System.out.println(" Failed to Connect to Database!");
         }
     }
 
 
 
 	}
+
 
 

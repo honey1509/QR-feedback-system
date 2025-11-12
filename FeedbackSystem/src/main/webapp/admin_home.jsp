@@ -22,7 +22,6 @@
             background-repeat: no-repeat;
         }
 
-        /* Glass Effect Card */
         .dashboard-card {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(12px);
@@ -50,6 +49,16 @@
             transform: scale(1.06);
         }
 
+        .logout-btn {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
     </style>
 </head>
 
@@ -58,31 +67,24 @@
 <div class="container d-flex justify-content-center align-items-center" style="height:100vh;">
 
     <div class="dashboard-card text-center col-md-6">
-
         <h2 class="dashboard-title mb-4">Restaurant Admin Dashboard</h2>
 
-        <div class="row">
+        <div class="row g-3">
 
-            <div class="col-md-12 mb-3">
-                <a href="generate_qr.jsp"
-                   class="btn btn-primary menu-btn w-100 p-3 shadow">
-                    Generate QR for feedback 
-                </a>
-            </div>
-
+           
             <div class="col-md-12">
-                <a href="ViewFeedbackServlet"
+                <a href="viewfeedbackservlet"
                    class="btn btn-success menu-btn w-100 p-3 shadow">
                     View Customer Feedback
                 </a>
             </div>
 
-        </div>
+            
 
+        </div>
     </div>
 
 </div>
 
 </body>
-
 </html>
