@@ -15,46 +15,54 @@ import jakarta.servlet.http.HttpServletResponse;
 public class SubmitFeedbackServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String name = request.getParameter("name");
         String email = request.getParameter("email");
-        String foodItem = request.getParameter("foodItem");
-        String foodquality = request.getParameter("foodquality");
+        String foodItem = request.getParameter("fooditem");
         String comments = request.getParameter("comments");
 
-        int servicerating = 0;
-        int overallexperience = 0;
+        int foodQuality = 0;
+        int serviceRating = 0;
+        int overallExperience = 0;
 
         try {
-            servicerating = Integer.parseInt(request.getParameter("servicerating"));
-            overallexperience = Integer.parseInt(request.getParameter("overall"));
+            foodQuality = Integer.parseInt(request.getParameter("foodquality"));
+            serviceRating = Integer.parseInt(request.getParameter("servicerating"));
+            overallExperience = Integer.parseInt(request.getParameter("overall"));
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
 
         try (Connection con = DBConnection.getConnection()) {
+
+          
             String sql = "INSERT INTO feedback "
-                       + "(name, email, foodItem, foodquality, servicerating, overallexperience, comments) "
+                       + "(name, email, food_item, food_quality, service_rating, overall_experience, comments) "
                        + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement ps = con.prepareStatement(sql);
-
             ps.setString(1, name);
             ps.setString(2, email);
             ps.setString(3, foodItem);
-            ps.setString(4, foodquality);
-            ps.setInt(5, servicerating);
-            ps.setInt(6, overallexperience);
+            ps.setInt(4, foodQuality);
+            ps.setInt(5, serviceRating);
+            ps.setInt(6, overallExperience);
             ps.setString(7, comments);
 
-            ps.executeUpdate();
+            int rows = ps.executeUpdate();
             ps.close();
 
-           
-            request.setAttribute("message", "Thank you! Your feedback was submitted successfully.");
-            request.getRequestDispatcher("success.jsp").forward(request, response);
+            if (rows > 0) {
+                System.out.println(" Feedback inserted successfully!");
+                request.setAttribute("message", "Thank you! Your feedback was submitted successfully.");
+                request.getRequestDispatcher("success.jsp").forward(request, response);
+            } else {
+                System.out.println(" Feedback not inserted!");
+                response.sendRedirect("error.jsp");
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();

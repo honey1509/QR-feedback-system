@@ -1,4 +1,3 @@
-
 package packagep1;
 
 import jakarta.servlet.ServletException;
@@ -23,7 +22,7 @@ public class ViewFeedBackServlet extends HttpServlet {
 
         try (Connection con = DBConnection.getConnection()) {
 
-            String sql = "SELECT * FROM feedback ORDER BY id DESC";
+            String sql = "SELECT * FROM feedback ORDER BY submitted_at DESC";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
@@ -33,25 +32,24 @@ public class ViewFeedBackServlet extends HttpServlet {
                 fb.setName(rs.getString("name"));
                 fb.setEmail(rs.getString("email"));
                 fb.setFoodItem(rs.getString("food_item"));
-                fb.setFoodQuality(rs.getInt("food_quality"));  
+                fb.setFoodQuality(rs.getInt("food_quality"));
                 fb.setServicerating(rs.getInt("service_rating"));
                 fb.setOverallexperience(rs.getInt("overall_experience"));
                 fb.setComments(rs.getString("comments"));
+                fb.setSubmittedAt(rs.getTimestamp("submitted_at"));
                 feedbackList.add(fb);
-                System.out.println("ViewFeedBackServlet called successfully!");
-                System.out.println(" Records fetched: " + feedbackList.size());
             }
+
+            System.out.println("✅ Records fetched from DB: " + feedbackList.size());
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-       
         request.setAttribute("feedbackList", feedbackList);
         request.getRequestDispatcher("view_feedback.jsp").forward(request, response);
     }
 
- 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);

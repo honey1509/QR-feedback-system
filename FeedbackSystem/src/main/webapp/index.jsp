@@ -67,10 +67,9 @@
         <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
-                 <li class="nav-item"><a class="nav-link" href="admin_login.jsp">Admin Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="menu.jsp">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="feedback_form.jsp">Give Feedback</a></li>
-                <li class="nav-item"><a class="nav-link" href="view_feedback.jsp">View Feedback</a></li>
+                 <li class="nav-item"><a class="nav-link" href="admin_login.jsp">Admin Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="qr.jsp">Give Feedback</a></li>
                
             </ul>
         </div>
