@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, restaurant.qrfeedback.model.Feedback" %>
+<%@ page import="packagep1.Feedback" %>
+<%@ page import="java.util.List" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,36 +75,42 @@
 
         <tbody>
             <%
-                List<Feedback> feedbackList = (List<Feedback>) request.getAttribute("feedbackList");
-                if (feedbackList != null && !feedbackList.isEmpty()) {
-                    for (Feedback fb : feedbackList) {
-            %>
-                        <tr>
-                            <td><%= fb.getId() %></td>
-                            <td><%= fb.getName() %></td>
-                            <td><%= fb.getEmail() %></td>
-                            <td><%= fb.getFoodItem() %></td>
-                            <td><%= fb.getFoodquality() %></td>
-                            <td><%= fb.getServicerating() %></td>
-                            <td><%= fb.getOverallexperience() %></td>
-                            <td><%= fb.getComments() %></td>
-                            <td><%= fb.getSubmittedAt() %></td>
-                        </tr>
-            <%
-                    }
-                } else {
-            %>
-                        <tr>
-                            <td colspan="9" class="text-center text-muted">No feedback records found.</td>
-                        </tr>
-            <%
+           
+            List<Feedback> feedbackList = (List<Feedback>) request.getAttribute("feedbackList");
+
+            if (feedbackList != null && !feedbackList.isEmpty()) {
+                for (Feedback fb : feedbackList) {
+        %>
+
+        <tr>
+            <td><%= fb.getId() %></td>
+            <td><%= fb.getName() %></td>
+            <td><%= fb.getEmail() %></td>
+            <td><%= fb.getFoodItem() %></td>
+            <td><%= fb.getFoodQuality() %></td>
+            <td><%= fb.getServiceRating() %></td>
+            <td><%= fb.getOverallExperience() %></td>
+            <td><%= fb.getComments() %></td>
+            <td><%= fb.getSubmittedAt() %></td>
+        </tr>
+
+        <%
                 }
-            %>
+            } else {
+        %>
+
+        <tr>
+            <td colspan="9" class="text-center text-muted">No feedback records found.</td>
+        </tr>
+
+        <%
+            }
+        %>
         </tbody>
     </table>
 
     <div class="text-center mt-4">
-        <a href="admin_home.jsp" class="btn-back">⬅ Back to Dashboard</a>
+        <a href="admin_home.jsp" class="btn-back">Back to Dashboard</a>
     </div>
 </div>
 

@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import restaurant.qrfeedback.model.Feedback;
 
 
 @WebServlet("/adminhomeservlet")
@@ -44,8 +43,8 @@ public class AdminHomeServlet extends HttpServlet {
                 fb.setName(rs.getString("name"));
                 fb.setEmail(rs.getString("email"));
                 fb.setFoodItem(rs.getString("food_item"));
-                fb.setServicerating(rs.getInt("service_rating"));
-                fb.setOverallexperience(rs.getInt("overall_experience"));
+                fb.setServiceRating(rs.getInt("service_rating"));
+                fb.setOverallExperience(rs.getInt("overall_experience"));
                 fb.setComments(rs.getString("comments"));
                 fb.setSubmittedAt(rs.getTimestamp("submitted_at"));
                 feedbackList.add(fb);

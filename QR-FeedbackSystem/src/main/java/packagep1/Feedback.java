@@ -14,7 +14,7 @@ public class Feedback {
     private String comments;
     private Timestamp submittedAt;
 
-    // --- Getters and Setters ---
+  
     public int getId() {
         return id;
     }

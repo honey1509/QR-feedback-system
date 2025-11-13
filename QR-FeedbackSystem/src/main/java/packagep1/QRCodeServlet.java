@@ -21,7 +21,7 @@ public class QRCodeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // ✅ Automatically detect environment (localhost / LAN / hosted)
+   
         String feedbackUrl = "https://glendora-monochromic-mineralogically.ngrok-free.dev" 
                            + request.getContextPath() + "/feedback_form.jsp";
 

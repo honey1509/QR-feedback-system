@@ -35,6 +35,6 @@ public class LogoutServlet extends HttpServlet {
         }
 
         
-        response.sendRedirect("admin_login.jsp?logout=success");
+        response.sendRedirect("index.jsp?logout=success");
     }
 }

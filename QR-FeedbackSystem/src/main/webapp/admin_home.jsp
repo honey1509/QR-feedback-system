@@ -79,14 +79,14 @@
                 </a>
             </div>
             
-             <div class="col-md-12">
+             
+             <a href="RatingChartServlet" class="btn btn-warning mt-3"> View Overall Rating Chart</a>
+            <div class="col-md-12">
                 <a href="logoutservlet"
                    class="btn btn-danger menu-btn w-100 p-3 shadow">
                     Logout
                 </a>
             </div>
-             <a href="RatingChartServlet" class="btn btn-warning mt-3"> View Overall Rating Chart</a>
-            
 
         </div>
     </div>
